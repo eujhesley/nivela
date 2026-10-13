@@ -1,0 +1,86 @@
+:root {
+  --bg: #232323;
+  --panel: #2c2c2c;
+  --line: #3d3d3d;
+  --text: #d6d6d6;
+  --muted: #8f8f8f;
+  --accent: #2d8ceb;
+  --accent-h: #4a9ff0;
+  --danger: #c9483f;
+  --ok: #5fb760;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  padding: 12px;
+  background: var(--bg);
+  color: var(--text);
+  font: 12px/1.45 "Segoe UI", system-ui, sans-serif;
+}
+
+header h1 { margin: 0; font-size: 15px; font-weight: 600; }
+header .sub { margin: 2px 0 12px; color: var(--muted); }
+
+.group {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  padding: 10px;
+}
+
+label { display: block; margin-bottom: 10px; }
+label output { float: right; color: var(--muted); }
+label.check { display: flex; gap: 6px; align-items: center; margin-bottom: 6px; }
+
+select, input[type="text"] {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 5px 6px;
+  background: #1b1b1b;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font: inherit;
+}
+
+input[type="range"] { display: block; width: 100%; margin-top: 4px; accent-color: var(--accent); }
+
+.hint { margin: -4px 0 8px; color: var(--muted); font-size: 11px; }
+
+details { margin-top: 6px; border-top: 1px solid var(--line); padding-top: 8px; }
+summary { cursor: pointer; color: var(--muted); margin-bottom: 8px; }
+
+.actions { display: grid; gap: 6px; margin: 12px 0; }
+
+button {
+  padding: 8px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: #3a3a3a;
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+button:hover:not(:disabled) { background: #444; }
+button:disabled { opacity: .45; cursor: default; }
+button.primary { background: var(--accent); border-color: var(--accent); color: #fff; font-weight: 600; }
+button.primary:hover:not(:disabled) { background: var(--accent-h); }
+button.danger { background: var(--danger); border-color: var(--danger); color: #fff; }
+
+.bar { height: 6px; background: #1b1b1b; border-radius: 3px; overflow: hidden; }
+#barFill { height: 100%; width: 0; background: var(--accent); transition: width .15s; }
+.stage { margin: 6px 0; color: var(--muted); }
+
+#log {
+  margin: 0;
+  max-height: 220px;
+  overflow: auto;
+  white-space: pre-wrap;
+  font: 11px/1.4 Consolas, monospace;
+  color: var(--muted);
+}
+#log .ok { color: var(--ok); }
+#log .err { color: #e8776f; }
